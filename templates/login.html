@@ -1,0 +1,83 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+        .login-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .login-form input[type="tel"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+
+
+    <form class="login-form" action="#" method="POST">
+        <h2>Kirish</h2>
+        <label for="phone">Telefon raqam:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+998901234567" required>
+
+        <label for="password">Parol:</label>
+        <input type="password" id="password" name="password" placeholder="Parolingiz" required>
+
+        <button type="submit">Kirish</button>
+    </form>
+
+
+
+</body>
+</html> 

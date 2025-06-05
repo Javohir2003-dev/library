@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Profil</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <label>Foydalanuvchi: {{ request.user.username }}</label><br>
+        <label>Telefon: {{ request.user.phone }}</label><br>
+        <label>Ism: {{ request.user.first_name }}</label><br>
+        <label>Familiya: {{ request.user.last_name }}</label><br>
+    </div>
+
+    <div>
+        {{ form.as_p }}
+    </div>
+
+    <button type="submit">Saqlash</button>
+</form>
+
+{% if profile.image %}
+    <h3>Profil rasmi:</h3>
+    <img src="{{ profile.image.url }}" width="150" />
+{% endif %}
+
+
+    
+</body>
+</html>
