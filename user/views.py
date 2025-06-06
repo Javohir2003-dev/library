@@ -4,10 +4,11 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.auth import login,logout
 
 
 from user.models import Costom_User,Profile
-from user.forms import CostomUserForm,ProfileForm
+from .forms import CostomUserForm,ProfileForm,LoginForm
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -70,8 +71,16 @@ def profile_view(request):
 
 
 
-def login_user(request):
-    pass
+def login_view(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = form.cleaned_date['user']
+            login(request, user)
+            messages.success(request, "Muvaffaqiyatli tizimga kirdingiz.")
+            return redirect('home')
+    else:
+        form = LoginForm()
     return render(request, 'login.html')
 
 

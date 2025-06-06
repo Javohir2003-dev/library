@@ -120,4 +120,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+AUTHENTICATION_BACKENDS = ['user.auth_backends.PhoneBackend']
 AUTH_USER_MODEL = 'user.Costom_User'

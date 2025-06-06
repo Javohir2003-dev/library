@@ -1,28 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-</head>
-<body>
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,8 +24,7 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        .login-form input[type="tel"],
-        .login-form input[type="password"] {
+        .login-form input {
             width: 100%;
             padding: 10px;
             margin: 10px 0 15px;
@@ -63,21 +43,37 @@
         .login-form button:hover {
             background-color: #2980b9;
         }
+        .errorlist {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            list-style: none;
+            padding: 0;
+        }
     </style>
+</head>
+<body>
 
-
-    <form class="login-form" action="#" method="POST">
+    <form class="login-form" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
         <h2>Kirish</h2>
-        <label for="phone">Telefon raqam:</label>
-        <input type="tel" id="phone" name="phone" placeholder="+998901234567" required>
 
-        <label for="password">Parol:</label>
-        <input type="password" id="password" name="password" placeholder="Parolingiz" required>
+        {% if form.non_field_errors %}
+            <ul class="errorlist">
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+
+        {{ form.password.label_tag }}
+        {{ form.password }}
 
         <button type="submit">Kirish</button>
     </form>
 
-
-
 </body>
-</html> 
+</html>

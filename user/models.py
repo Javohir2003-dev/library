@@ -10,16 +10,18 @@ from django.core.validators import RegexValidator
 class Costom_User(AbstractUser):
     phone = models.CharField(
         max_length=15,
+        unique=True,
         blank=True,
         null=True,
         verbose_name='Telefon',
         validators=[
             RegexValidator(
                 regex=r'^\+?\d{1,3}[-.\s]?\d{3,4}[-.\s]?\d{4,8}$',
-                message="Telefon raqami to'g'ri formatda kiritilishi kerak. Masalan, +998 901 234567 yoki +998-901-234567"
-        )
-]
+                message="Telefon raqami to'g'ri formatda kiritilishi kerak. Masalan, +998901234567"
+            )
+        ]
     )
+        
     address = models.CharField(max_length=255, blank=True, null=True, verbose_name='Manzil')
     gender = models.CharField(
         max_length=10,
