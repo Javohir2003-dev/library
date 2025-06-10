@@ -1,0 +1,9 @@
+from django.urls import path
+from user.views import *
+
+
+urlpatterns = [
+    path('', home,name='home'),
+    path('user/', user_view, name='user_url'),
+
+]
