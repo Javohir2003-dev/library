@@ -9,6 +9,18 @@ from .forms import CustomUserForms
 
 
 
+
+def home(request):
+    pass
+    return render(request, 'home.html')
+
+
+
+
+
+
+
+
 def user_view(request):
     form = CustomUserForms()
     if request.method == 'POST':
@@ -22,7 +34,6 @@ def user_view(request):
 
 
 
-
-def home(request):
+def profile(request):
     pass
-    return render(request, 'home.html')
+    return render(request, 'profile.html')
