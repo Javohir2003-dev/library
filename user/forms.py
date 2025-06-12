@@ -21,3 +21,9 @@ class CustomUserForms(forms.ModelForm):
             user.save()
         return user
     
+
+
+
+class LoginForms(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username kiriting'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password kiriting'}))
